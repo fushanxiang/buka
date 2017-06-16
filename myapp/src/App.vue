@@ -2,7 +2,7 @@
   <div id="app">
   		<x-header :left-options="{showBack:false}">
   			<span class="span1"><img src="./assets/logo_2x.png" height="29" width="60" alt=""></span>
-  			<span class="span2"><img src="./assets/research_2x.png" height="26" width="26" alt=""></span>
+  			<span class="span2"><router-link to="/xeng"><img src="./assets/research_2x.png" height="26" width="26" alt=""></router-link></span>
   		</x-header>
    <sticky scroll-box="vux_view_box_body" :offset="46" :check-sticky-support="false">
         <tab :line-width="1">

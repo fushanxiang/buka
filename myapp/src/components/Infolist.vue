@@ -10,12 +10,14 @@
 			<p class="info-p1"><img src="http://m.buka.cn/static/img/fire.png" width='40%' height="30%" alt="">
 				<span>111万</span>
 			</p>
+
 		</div>
+			<p class="haha haha1">Comic Rex 131号</p>
+			<p class="haha"><a class="haha-a1" href="">一讯社</a></p>
 		<flexbox>
 	        <flexbox-item>
 	          <x-button type="primary">
-		          <a onclick="fun()" href="#" class="info-fla1">添加收藏</a>
-		          <a href="#" class="info-fla2">已收藏</a>
+		          <a href="#" class="info-fla1" on-item-click="clear">添加收藏</a>
 	          </x-button>
 	        </flexbox-item>
 	        <flexbox-item>
@@ -30,18 +32,17 @@
 		<div class="info-div3">
 			<p  class="info-p1"><img src="http://c-r6.sosobook.cn/static/m.buka.cn/img/share_icon.png" alt="" width="30%" height="0%"><span>分享</span></p>
 			<p  class="info-p1"><img src="http://c-r6.sosobook.cn/static/m.buka.cn/img/toudi.png" width="30%" height="30%" alt=""><span>投稿</span></p>
-			<p  class="info-p1"><img src="http://c-r6.sosobook.cn/static/m.buka.cn/img/comment.png" width="30%" height="30%" alt=""><span>评论</span></p>
+			<p  class="info-p1"><img src="http://c-r6.sosobook.cn/static/m.buka.cn/img/comment.png" width="30%" height="30%" alt=""><span>评论(50)</span></p>
 			
 		</div>
 		<p class="info-p2">连载<span>更新时间2016-11-04</span></p>
 		<grid :rows="3">
-      	<grid-item v-for="item in arr">
+      	<grid-item v-for="item in arr2">
      	 <span class="grid-center"><a href="http://m.ac.qq.com/chapter/index/id/551514/cid/44">{{item.name}}</a></span>
       </grid-item>
     </grid>
 	</div>
 </template>
-
 <script>
 import Vue from "vue"
 import { Sticky  ,Tab, TabItem, Flexbox , FlexboxItem, SwiperItem , Grid, GridItem ,XButton, Box, GroupTitle, Group, Divider } from 'vux'
@@ -50,7 +51,7 @@ import { Sticky  ,Tab, TabItem, Flexbox , FlexboxItem, SwiperItem , Grid, GridIt
 			Sticky,
 			Tab,
 			TabItem,
-			 SwiperItem,
+			SwiperItem,
 		    Flexbox,
 		    FlexboxItem,
 		    Grid,
@@ -62,31 +63,38 @@ import { Sticky  ,Tab, TabItem, Flexbox , FlexboxItem, SwiperItem , Grid, GridIt
 		    Divider
 		},
 	  created(){
-	  	/*	var shuju = window.location.hash.replace("#/Infolist/","")
+	  		/*var shuju = window.location.hash.replace("#/Infolist/","")
    			console.log(shuju)
-   			var id = shuju.substring(0, 6)*/
-		      var url = "/comic/chapter?comicName=%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85&skip=&key=ead2ee0e68006bf8afb329a0b52cf96f"
-		      Vue.axios.get(url).then((res)=> {
-		        return res.data.result.chapterList
+   			var id = shuju.substring(0, 6)
+
+   			var url = "/gethome/get_data";
+   			Vue.axios.get(url).then((res)=> {
+		        return res.data.datas.items
 		      }).then((data)=> {
 		        this.arr = data
 		       console.log(this.arr)
+		      })*/
+
+
+		   var url = "/comic/chapter?comicName=%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85&skip=&key=ead2ee0e68006bf8afb329a0b52cf96f"
+		      Vue.axios.get(url).then((res)=> {
+		        return res.data.result.chapterList
+		      }).then((data)=> {
+		        this.arr2 = data
+		       //console.log(this.arr2)
 		      })
 		 },
 	  methods: {
-	    change (value) {
-	      console.log('change:', value)
-	    },
-	    processButton001 () {
-	      this.submit001 = 'processing'
-	      this.disable001 = true
+	    clear(){
+	    	this.innerHTML= "已收藏"
 	    }
 	  },
 	  data () {
 	    return {
 	      submit001: 'click me',
 	      disable001: false,
-	      arr:"" 
+	      arr:"",
+	      arr2:""
 	    }
 	  }
 	}
@@ -95,6 +103,7 @@ import { Sticky  ,Tab, TabItem, Flexbox , FlexboxItem, SwiperItem , Grid, GridIt
 </script>
 
 <style>
+.info-img1{margin-top:50px;}
 .info-fla2{display: none;background:#eee;}
 .info-div1{width:100%;height: 30vh;background: #eee;display: flex; justify-content: space-around;align-items: center}
 .info-div1 .info-p1{display: flex;flex-direction: column;justify-content: center;align-items: center}
@@ -106,6 +115,8 @@ import { Sticky  ,Tab, TabItem, Flexbox , FlexboxItem, SwiperItem , Grid, GridIt
 .info-p2 span{float:right;}
 .info-div3{width:100%;height:20vh;display: flex;justify-content: space-between;align-items: center;}
 .info-div3 p{display: flex;flex-direction: column;justify-content:center;align-items: center}
-.vux-flex-row{margin:30px 0;}
-
+.vux-flex-row{margin:10px 0;}
+.haha{text-align: center;margin:0;padding:0;font-size: 0.9rem;font-weight: 900}
+.haha1{margin-top:30px;}
+.haha .haha-a1{color:#80cece;}
 </style>

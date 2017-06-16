@@ -2,7 +2,7 @@
   <div class="hello">
      <grid :rows="3">
       <grid-item v-for="item in arr4">
-      <span class="grid-center" ><router-link :to="{ name:'Infolist', params:{id:item.id} }"><img :src="item.logo" width="100%" height="100%" alt=""><p>{{item.name}}</p></router-link></span>
+      <span class="grid-center"><router-link :to="{ name:'Infolist', params:{id:item.id} }"><img :src="item.logo" width="100%" height="100%" alt=""><p>{{item.name}}</p></router-link></span>
       </grid-item>
     </grid>
   </div>
@@ -28,7 +28,7 @@ export default {
 	        return res.data.datas.items  
 	      }).then((data)=> {
 	        this.arr4 = data
-	        console.log(this.arr4)
+	        //console.log(this.arr4)
       })
     }
 }

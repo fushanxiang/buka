@@ -30,7 +30,7 @@
   		        return res.data.datas.items  
   		      }).then((data)=> {
   		        this.arr = data
-  		       console.log(this.arr)
+  		       //console.log(this.arr)
   	      })
    		 }
 	}

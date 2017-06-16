@@ -5,9 +5,7 @@
     <div class="box-div1">每周推荐</div>
     <grid :rows="3">
       <grid-item v-for="item in arr">
-       
         <span class="grid-center"> <router-link :to="{ name:'Infolist', params:{id:item.id} }"><img :src="item.cover_url" width="100%" height="100%" alt=""><p>{{item.title}}</p></router-link></span>
-        
       </grid-item>
     </grid>
     <div class="box-div1">最新更新</div>
@@ -79,7 +77,7 @@ export default {
         return res.data.list
       }).then((data)=> {
         this.arr2 = data
-        console.log(this.arr2)
+        //console.log(this.arr2)
       })
     }/*,
     computed:{

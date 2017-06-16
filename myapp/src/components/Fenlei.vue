@@ -95,6 +95,6 @@
 </script>
 <style>
 .div-ul1{display: flex;justify-content: space-between;flex-wrap:wrap;}
-.div-ul1 li{width:20%;height:80px;margin: 30px 10px;border-radius:50%;text-align: center}
+.div-ul1 li{width:20%;height:80px;margin: 30px 10px;border-radius:50%;text-align: center;list-style: none}
 .div-ul1 li img{border-radius: 50%;display: inline-block; }
 </style>

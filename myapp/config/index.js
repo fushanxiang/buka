@@ -62,6 +62,13 @@ module.exports = {
             pathRewrite:{
                 "^/category":''
             }
+        },
+        '/gethome':{
+            target:'http://m.buka.cn/ranking',
+            changeOrigin:true,
+            pathRewrite:{
+                "^/gethome":''
+            }
         }
 
     },

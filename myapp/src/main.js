@@ -15,6 +15,7 @@ import Zhoubian from './components/Zhoubian'
 import Rban from './components/Rban'
 import Wan from './components/Wan'
 import Gao from './components/Gao'
+import Xeng from './components/Xeng'
 
 Vue.use(VueAxios, axios)
 Vue.use(VueRouter)
@@ -63,6 +64,11 @@ const routes = [
 		path:'/gao',
 		mane:'Gao',
 		component:Gao
+	},
+	{
+		path:'/Xeng',
+		mane:'Xeng',
+		component:Xeng
 	}
 ]
 
@@ -72,7 +78,7 @@ const router = new VueRouter({
 
 FastClick.attach(document.body)
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
